@@ -89,7 +89,11 @@ async function getREAUValue() {
 	REAUtoBRL = info.reauBrlPrice;
 	let valueReau=localStorage.getItem(VALUE_REAL);
 
-	if(valueReau){
+	let wallet = localStorage.getItem('reau-user-wallet');
+
+
+
+	if(valueReau && wallet == null){
 		valueFields.fromMask.typedValue = normalizeENotation(valueReau);
 	}else if (valueFields.fromMask.typedValue == 0) {	
 		valueFields.fromMask.typedValue = 1000000;		
