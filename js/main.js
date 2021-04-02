@@ -175,6 +175,7 @@ function calculateValues(inputModified, inputTarget) {
 	addToHistory();
 
 	updateHumanizedValue();
+	calculateValueUnit();
 }
 
 function changeCotationActiveStatus(activate) {
@@ -258,4 +259,20 @@ window.mobileCheck = function () {
 			check = true;
 	})(navigator.userAgent || navigator.vendor || window.opera);
 	return check;
+};
+
+function calculateValueUnit(){
+	try {
+
+		const valueTotalReau =parseFloat(valueFields.fromMask.unmaskedValue);
+		const valueTotalReis =parseFloat(valueFields.toMask.unmaskedValue);
+		const valueUnit = (valueTotalReis/valueTotalReau)*100000000;		
+		document.getElementById('valueCurrency').value= normalizeENotation(valueUnit.toFixed(0));
+
+	}catch(ex){
+		console.log(ex)
+		valueFields.valueReauMask.typedValue = 0;
+	}
+
+
 };

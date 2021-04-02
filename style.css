@@ -159,7 +159,7 @@ body {
 	outline: 0;
 	border: 0;
 	border-bottom: 2px solid #c8c8c8;
-	color: #909090;
+	color: #c8c8c8;
 	font-family: verdana;
 	font-size: 1em;
 	text-align: center;
@@ -290,4 +290,35 @@ body {
 	.history {
 		font-size: 2.5em;
 	}
+}
+
+
+.valor-unitario{
+
+	border: 1px solid #eee;	
+	border-radius: 15px;	
+	padding: 10px 35px;	
+	text-align: center;	
+	color: #d8d8d8;	
+
+}	
+.valor-unitario span{	
+
+	display: block;	
+	margin-bottom: 20px;	
+	font-size: 26px;	
+	font-weight: bold;	
+	
+}	
+.valor-unitario input{	
+
+	border: none;	
+	background-color: transparent;	
+	width: 200px;	
+	height: 50px;	
+	font-size: 30px;	
+	text-align: center;	
+	pointer-events: none;	
+	color: #2fc594;	
+	
 }
