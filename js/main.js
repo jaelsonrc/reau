@@ -1,6 +1,7 @@
 const REAUContract = '0x4c79b8c9cB0BD62B047880603a9DEcf36dE28344';
 const WBNBContract = '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c';
 const CBRLContract = '0x9e691fd624410d631c082202b050694233031cb7';
+const VALUE_REAL = 'MyReau';
 
 var maskOptions = {
 	mask: Number,
@@ -77,6 +78,7 @@ function loadUserWalletBalance() {
 			adjustValueFieldsToContent();
 			getREAUValue();
 		});
+
 }
 
 async function getREAUValue() {
@@ -85,9 +87,13 @@ async function getREAUValue() {
 	const info = await REAUInfoProvider.getInfo();
 
 	REAUtoBRL = info.reauBrlPrice;
+	let valueReau=localStorage.getItem(VALUE_REAL);
 
-	if (valueFields.fromMask.typedValue == 0) {
-		valueFields.fromMask.typedValue = 1000000;
+	if(valueReau){
+		valueFields.fromMask.typedValue = normalizeENotation(valueReau);
+	}else if (valueFields.fromMask.typedValue == 0) {	
+		valueFields.fromMask.typedValue = 1000000;		
+		
 	}
 
 	calculateValues(valueFields.fromMask, valueFields.toMask);
@@ -176,6 +182,7 @@ function calculateValues(inputModified, inputTarget) {
 
 	updateHumanizedValue();
 	calculateValueUnit();
+	setLocalStorege();
 }
 
 function changeCotationActiveStatus(activate) {
@@ -275,4 +282,17 @@ function calculateValueUnit(){
 	}
 
 
+};
+
+
+function setLocalStorege(){
+	const el = valueFields.fromMask;
+	const unmaskedModifiedValue = el.unmaskedValue;
+	const valueReau = parseFloat(unmaskedModifiedValue);
+	if(valueReau > 0.0) {
+
+		localStorage.setItem(VALUE_REAL,valueReau);
+		console.log(valueReau);
+
+	}
 };

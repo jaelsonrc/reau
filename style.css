@@ -324,6 +324,7 @@ body {
 }
 
 .disclaimer {
+	margin-top: 40px;
     max-width: 600px;
     background: rgba(0,0,0,0.7);
     padding: 12px;
