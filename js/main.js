@@ -292,7 +292,7 @@ function setLocalStorege(){
 	if(valueReau > 0.0) {
 
 		localStorage.setItem(VALUE_REAL,valueReau);
-		console.log(valueReau);
+
 
 	}
 };
