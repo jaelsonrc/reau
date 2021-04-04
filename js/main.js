@@ -48,10 +48,6 @@ function loadUserWallet() {
 function loadUserWalletBalance() {
 	var wallet = localStorage.getItem('reau-user-wallet');
 
-	if (!wallet) {
-		getREAUValue();
-		return;
-	}
 
 	var url =
 		'https://api.bscscan.com/api?module=account&action=tokenbalance&tag=latest&apikey=xxx';
@@ -220,7 +216,9 @@ function addToHistory() {
 }
 
 setInterval(function () {
-	refreshData();
+	let walletBalance = document.getElementById('wallet-input').value;
+	if(walletBalance?.length > 0 ) loadUserWalletBalance();
+	else refreshData();
 }, 15000);
 
 valueFields.from.onfocus = valueFields.to.onfocus = function () {

@@ -46,7 +46,7 @@ Highcharts.stockChart('chart-high', {
   },
 
   title: {
-    text: 'Valor em Reais',
+    text: 'Valor em R$(O grafico exibe valores maior que 1 real)',
   },
 
   exporting: {
