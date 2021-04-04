@@ -1,99 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Cotação do $REAU hoje</title>
-		<link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
 
-		<meta name="apple-mobile-web-app-title" content="$REAU hoje" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Cotação do $REAU hoje</title>
+	<link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
 
-		<meta name="theme-color" content="#fff" />
-		<meta name="msapplication-navbutton-color" content="#fff" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="#fff" />
+	<meta name="apple-mobile-web-app-title" content="$REAU hoje" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
 
-		<meta
-			name="keywords"
-			content="reau,valor do reau,preço do real,preço reau,quanto vale um reau,quanto vale 1 reau,$reau,valor do $reau,preço do real,preço $reau,quanto vale um $reau,quanto vale 1 $reau"
-		/>
+	<meta name="theme-color" content="#fff" />
+	<meta name="msapplication-navbutton-color" content="#fff" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#fff" />
+	<meta name="keywords" content="reau,valor do reau,preço do real,preço reau,quanto vale um reau,quanto vale 1 reau,$reau,valor do $reau,preço do real,preço $reau,quanto vale um $reau,quanto vale 1 $reau" />
 
-		<meta name="description" content="Cotação da criptomoeda $REAU" />
+	<meta name="description" content="Cotação da criptomoeda $REAU" />
 
-		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="$REAU Hoje" />
-		<meta property="og:title" content="Quanto vale 1 $REAU hoje" />
-		<meta property="og:url" content="https://reauhoje.com" />
-		<meta property="og:image" content="./images/logo.png" />
-		<meta property="og:description" content="Cotação da criptomoeda $REAU" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="$REAU Hoje" />
+	<meta property="og:title" content="Quanto vale 1 $REAU hoje" />
+	<meta property="og:url" content="https://reauhoje.com" />
+	<meta property="og:image" content="./images/logo.png" />
+	<meta property="og:description" content="Cotação da criptomoeda $REAU" />
 
-		<meta name="author" content="Mayke Herbst" />
+	<meta name="author" content="Mayke Herbst" />
 
-		<link rel="stylesheet" href="style.css" />
-	</head>
+	<link rel="stylesheet" href="style.css" />
+</head>
 
-	<body>
-		<div id="container">
-			<div id="logo"><img src="./images/logo.png" alt="" /></div>
-			<div id="wallet-input-wrapper">
-				<input
-					type="text"
-					placeholder="Insira o endereço da sua carteira para buscar o saldo automaticamente"
-					id="wallet-input"
-				/>
-				<button onclick="saveUserWallet()" id="wallet-input-button">Salvar</button>
-			</div>
+<body>
+	<div id="container">
+		<div id="logo"><img src="./images/logo.png" alt="" /></div>
+		<div id="wallet-input-wrapper">
+			<input type="text" placeholder="Insira o endereço da sua carteira para buscar o saldo automaticamente" id="wallet-input" />
+			<button onclick="saveUserWallet()" id="wallet-input-button">Salvar</button>
+		</div>
 
-			<div class="valor-unitario">
-				<span class="currency-symbol currency-symbol-to">Valor do Reau</span>
-				<input type="text" id="valueCurrency" class="disabled" value="0" />
-			</div>
-			<div id="cotation-values">
-				<div class="from-wrapper">
-					<div class="values-wrapper">
-						<span class="currency-symbol currency-symbol-from">$R</span>
-						<input type="text" id="fromCurrency" value="1.000.000" />
-					</div>
-					<div id="humanized-value">
-						<img src="./images/exclamation.svg" />
-					</div>
+		<div class="valor-unitario">
+			<span class="currency-symbol currency-symbol-to">Valor do Reau</span>
+			<input type="text" id="valueCurrency" class="disabled" value="0" />
+		</div>
+		<div id="cotation-values">
+			<div class="from-wrapper">
+				<div class="values-wrapper">
+					<span class="currency-symbol currency-symbol-from">$R</span>
+					<input type="text" id="fromCurrency" value="1.000.000" />
 				</div>
-				<div id="middle-text"><span> está valendo </span></div>
-				<div class="to-wrapper">
-					<div class="values-wrapper">
-						<span class="currency-symbol currency-symbol-to">R$</span>
-						<input type="text" id="toCurrency" value="0,00" />
-					</div>
-					<div
-						id="refresh-button"
-						class="refresh-button-loading"
-						onclick="getREAUValue()"
-					>
-						<img id="refresh-img" src="./images/refresh.svg" />
-					</div>
+				<div id="humanized-value">
+					<img src="./images/exclamation.svg" />
 				</div>
 			</div>
-			<div id="history" class="history"></div>
-			<br/>
-			<br/>
-			<div class="disclaimer">
-				<p>Este é um site sem vínculo algum com o Projeto Oficial do $REAU - VIRA-LATA FINANCE! Nosso único objetivo é prover informação atualizada e facilitada da cotação atual!</p>
-				<div class="linklx">
-					<a class="link" href="https://br.viralata.finance/" target="_blank">SITE OFICIAL</a>
+			<div id="middle-text"><span> está valendo </span></div>
+			<div class="to-wrapper">
+				<div class="values-wrapper">
+					<span class="currency-symbol currency-symbol-to">R$</span>
+					<input type="text" id="toCurrency" value="0,00" />
+				</div>
+				<div id="refresh-button" class="refresh-button-loading" onclick="getREAUValue()">
+					<img id="refresh-img" src="./images/refresh.svg" />
 				</div>
 			</div>
 		</div>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
-			integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
-			crossorigin="anonymous"
-		></script>
-		<script src="https://unpkg.com/imask"></script>
-		<script src="https://unpkg.com/@popperjs/core@2"></script>
-		<script src="https://unpkg.com/tippy.js@6"></script>
-		<script src="./libs/web3.min.js"></script>
-		<script src="./libs/NumberToWords.js"></script>
-		<script src="./js/reauInfoProvider.js"></script>
-		<script src="./js/main.js"></script>
-	</body>
+		<div id="chart-high" class="history">
+			<figure class="highcharts-figure">
+				<div id="container"></div>
+				<p class="highcharts-description">
+					Highcharts has extensive support for time series, and will adapt
+					intelligently to the input data. Click and drag in the chart to zoom in
+					and inspect the data.
+				</p>
+			</figure>
+		</div>
+		<div id="history" class="history" style="display:none"></div>
+		<br />
+		<br />
+		<div class="disclaimer">
+			<p>Este é um site sem vínculo algum com o Projeto Oficial do $REAU - VIRA-LATA FINANCE! Nosso único objetivo é prover informação atualizada e facilitada da cotação atual!</p>
+			<div class="linklx">
+				<a class="link" href="https://br.viralata.finance/" target="_blank">SITE OFICIAL</a>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/imask"></script>
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script src="https://unpkg.com/tippy.js@6"></script>
+	<script src="./libs/web3.min.js"></script>
+	<script src="./libs/NumberToWords.js"></script>
+	<script src="https://code.highcharts.com/stock/highstock.js"></script>
+	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+	<script src="./js/reauInfoProvider.js"></script>
+	<script src="./js/main.js"></script>
+	<script src="./js/chart.js"></script>
+
+</body>
+
 </html>
