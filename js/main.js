@@ -2,6 +2,7 @@ const REAUContract = '0x4c79b8c9cB0BD62B047880603a9DEcf36dE28344';
 const WBNBContract = '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c';
 const CBRLContract = '0x9e691fd624410d631c082202b050694233031cb7';
 const VALUE_REAL = 'MyReau';
+let CapMercado = 0.0;
 
 var maskOptions = {
 	mask: Number,
@@ -77,11 +78,13 @@ function loadUserWalletBalance() {
 
 }
 
+
+
 async function getREAUValue() {
 	handleLoading(true);
 
 	const info = await REAUInfoProvider.getInfo();
-
+	CapMercado = (info.marketCapBrl/1000000).toFixed(0);
 	REAUtoBRL = info.reauBrlPrice;
 	let valueReau=localStorage.getItem(VALUE_REAL);
 
@@ -216,9 +219,7 @@ function addToHistory() {
 }
 
 setInterval(function () {
-	let walletBalance = document.getElementById('wallet-input').value;
-	if(walletBalance?.length > 0 ) loadUserWalletBalance();
-	else refreshData();
+	refreshData();
 }, 15000);
 
 valueFields.from.onfocus = valueFields.to.onfocus = function () {
@@ -276,7 +277,7 @@ function calculateValueUnit(){
 		const valueTotalReau =parseFloat(valueFields.fromMask.unmaskedValue);
 		const valueTotalReis =parseFloat(valueFields.toMask.unmaskedValue);
 		const valueUnit = (valueTotalReis/valueTotalReau)*100000000;		
-		document.getElementById('valueCurrency').value= normalizeENotation(valueUnit.toFixed(0));
+		document.getElementById('valueCurrency').value=CapMercado + 'M / ' +  normalizeENotation(valueUnit.toFixed(0));
 
 	}catch(ex){
 		console.log(ex)
