@@ -32,7 +32,7 @@
 <body>
 	<div id="container">
 		<div id="logo"><img src="./images/logo.png" alt="" /></div>
-		<div id="wallet-input-wrapper">
+		<div id="wallet-input-wrapper" style="display:none">
 			<input type="text" placeholder="Insira o endereço da sua carteira para buscar o saldo automaticamente" id="wallet-input" />
 			<button onclick="saveUserWallet()" id="wallet-input-button">Salvar</button>
 		</div>
@@ -83,9 +83,9 @@
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
-	<script src="https://unpkg.com/imask"></script>
-	<script src="https://unpkg.com/@popperjs/core@2"></script>
-	<script src="https://unpkg.com/tippy.js@6"></script>
+	<script src="https://unpkg.com/imask@6.0.7/dist/imask.js"></script>
+	<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+	<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
 	<script src="./libs/web3.min.js"></script>
 	<script src="./libs/NumberToWords.js"></script>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>

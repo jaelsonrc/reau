@@ -58,7 +58,7 @@ function loadUserWalletBalance() {
 	axios
 		.get(url)
 		.then(function (response) {
-			var balance = response.data.result;
+				var balance = response.data.result;
 
 			if (balance != null) {
 				balance = balance.toString().replace(balance.toString().substr(-9), '');
